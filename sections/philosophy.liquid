@@ -1,0 +1,64 @@
+<style>
+  .aw-philosophy {
+    padding: 80px 40px;
+    background: #f5f0e8; text-align: center;
+  }
+  .aw-philosophy__inner { max-width: 720px; margin: 0 auto; }
+  .aw-philosophy__label {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px;
+    color: #c17f59; margin-bottom: 16px; font-weight: 500;
+  }
+  .aw-philosophy__quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem); font-style: italic;
+    color: #8b7355; margin: 48px auto; line-height: 1.5;
+  }
+  .aw-philosophy__quote::before {
+    content: '\201C'; font-size: 4rem; display: block;
+    color: #c4a882; opacity: 0.4; margin-bottom: -20px;
+  }
+  .aw-philosophy__text {
+    font-size: 1.05rem; color: #6b5e53; line-height: 1.8; font-weight: 300;
+  }
+  @media (max-width: 768px) { .aw-philosophy { padding: 60px 20px; } }
+</style>
+
+<section class="aw-philosophy">
+  <div class="aw-philosophy__inner">
+    <p class="aw-philosophy__label">{{ section.settings.label | default: "Our Philosophy" }}</p>
+    <blockquote class="aw-philosophy__quote">{{ section.settings.quote | default: "Wabi-sabi is not a style. It is a way of seeing — a quiet appreciation for the worn, the weathered, the simply beautiful." }}</blockquote>
+    <p class="aw-philosophy__text">{{ section.settings.text | default: "From hand-knotted table runners to cotton rope laundry baskets, our collection is an invitation to slow down. To fill your home with textures that feel good. To celebrate the imperfect, the handmade, and the real." }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Philosophy Quote",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Our Philosophy"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote",
+      "default": "Wabi-sabi is not a style. It is a way of seeing — a quiet appreciation for the worn, the weathered, the simply beautiful."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "From hand-knotted table runners to cotton rope laundry baskets, our collection is an invitation to slow down."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Philosophy Quote",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

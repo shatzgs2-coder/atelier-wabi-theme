@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "disabled": false
+    },
+    "brand-story": {
+      "type": "brand-story",
+      "disabled": false
+    },
+    "philosophy": {
+      "type": "philosophy",
+      "disabled": false
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "disabled": false,
+      "settings": {
+        "collection": "all",
+        "products_to_show": 50
+      }
+    },
+    "about": {
+      "type": "about",
+      "disabled": false
+    }
+  },
+  "order": [
+    "hero",
+    "brand-story",
+    "philosophy",
+    "featured-collection",
+    "about"
+  ]
+}

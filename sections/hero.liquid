@@ -1,0 +1,143 @@
+<style>
+  .aw-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(170deg, #f5f0e8 0%, #faf7f2 40%, #ede6d8 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .aw-hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,168,130,0.12) 0%, transparent 70%);
+    top: -200px; right: -100px;
+  }
+  .aw-hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(183,183,164,0.1) 0%, transparent 70%);
+    bottom: -150px; left: -80px;
+  }
+  .aw-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    padding: 0 24px;
+  }
+  .aw-hero__eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #c17f59;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .aw-hero__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 400;
+    color: #2c2420;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  .aw-hero__title em {
+    font-style: italic;
+    color: #8b7355;
+  }
+  .aw-hero__subtitle {
+    font-size: 1.1rem;
+    color: #6b5e53;
+    max-width: 480px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+  .aw-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: #8b7355;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .aw-hero__cta:hover {
+    background: #2c2420;
+    transform: translateY(-2px);
+  }
+  .aw-hero__scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: awFloat 2s ease-in-out infinite;
+  }
+  .aw-hero__scroll span {
+    display: block;
+    width: 1px; height: 48px;
+    background: #c4a882;
+    margin: 0 auto 8px;
+  }
+  .aw-hero__scroll small {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #c4a882;
+  }
+  @keyframes awFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+</style>
+
+<section class="aw-hero">
+  <div class="aw-hero__content">
+    <p class="aw-hero__eyebrow">Est. 2026 &mdash; Berlin</p>
+    <h1 class="aw-hero__title">{{ section.settings.tagline | default: "The Beauty of <em>Imperfection</em>" }}</h1>
+    <p class="aw-hero__subtitle">{{ section.settings.subtitle | default: "Handcrafted linen, cotton rope, and natural materials. Curated wabi-sabi decor that brings warmth, texture, and quiet beauty to every corner of your home." }}</p>
+    <a href="/collections/all" class="aw-hero__cta">{{ section.settings.cta_text | default: "Explore Collection" }}</a>
+  </div>
+  <div class="aw-hero__scroll">
+    <span></span>
+    <small>Scroll</small>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline (HTML allowed)",
+      "default": "The Beauty of <em>Imperfection</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Handcrafted linen, cotton rope, and natural materials. Curated wabi-sabi decor that brings warmth, texture, and quiet beauty to every corner of your home."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Explore Collection"
+    }
+  ]
+}
+{% endschema %}

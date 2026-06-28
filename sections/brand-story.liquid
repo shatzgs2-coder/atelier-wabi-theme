@@ -1,0 +1,134 @@
+<style>
+  .aw-story {
+    padding: 100px 40px;
+    background: #fff;
+  }
+  .aw-story__grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .aw-story__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #c17f59;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .aw-story__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: #2c2420;
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .aw-story__text p {
+    margin-bottom: 20px;
+    color: #6b5e53;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+  .aw-story__image img {
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    width: 100%;
+  }
+  .aw-story__values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .aw-story__value {
+    padding: 24px;
+    background: #faf7f2;
+    border-radius: 12px;
+  }
+  .aw-story__value h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #8b7355;
+    margin-bottom: 8px;
+  }
+  .aw-story__value p {
+    font-size: 0.88rem;
+    margin-bottom: 0;
+  }
+  @media (max-width: 768px) {
+    .aw-story { padding: 60px 20px; }
+    .aw-story__grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+
+<section class="aw-story" id="story">
+  <div class="aw-story__grid">
+    <div class="aw-story__image">
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: 'Atelier Wabi' }}
+      {% else %}
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=800&fit=crop" alt="Wabi-sabi interior" loading="lazy">
+      {% endif %}
+    </div>
+    <div>
+      <p class="aw-story__label">{{ section.settings.label | default: "Our Story" }}</p>
+      <h2 class="aw-story__title">{{ section.settings.title | default: "Where Less Becomes More" }}</h2>
+      <div class="aw-story__text">
+        {{ section.settings.story_text }}
+      </div>
+      <div class="aw-story__values">
+        <div class="aw-story__value">
+          <h4>Handcrafted</h4>
+          <p>Every piece is made by human hands, not machines. You'll feel the difference.</p>
+        </div>
+        <div class="aw-story__value">
+          <h4>Natural Materials</h4>
+          <p>Linen, cotton rope, soy wax, solid wood. Pure, biodegradable, timeless.</p>
+        </div>
+        <div class="aw-story__value">
+          <h4>Slow Living</h4>
+          <p>We believe in buying less, choosing well, and making it last.</p>
+        </div>
+        <div class="aw-story__value">
+          <h4>Direct Artisan</h4>
+          <p>No middlemen. We connect you directly with master craftspeople.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Where Less Becomes More"
+    },
+    {
+      "type": "richtext",
+      "id": "story_text",
+      "label": "Story Content",
+      "default": "<p>Atelier Wabi was born in Berlin, inspired by the Japanese philosophy of <em>wabi-sabi</em> — finding beauty in imperfection, transience, and simplicity. Each piece in our collection tells a story of craftsmanship, natural materials, and mindful living.</p><p>We work directly with skilled artisans who weave cotton rope by hand, dye linen with natural pigments, and pour soy candles in small batches. No two pieces are exactly alike — and that's precisely the point.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Story Image"
+    }
+  ]
+}
+{% endschema %}

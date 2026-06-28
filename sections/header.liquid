@@ -1,0 +1,60 @@
+<style>
+  .aw-header {
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .aw-header__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .aw-header__logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #8b7355;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+  .aw-header__menu {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .aw-header__menu a {
+    font-size: 0.85rem;
+    color: #6b5e53;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .aw-header__menu a:hover { color: #8b7355; }
+  @media (max-width: 768px) {
+    .aw-header { padding: 0 20px; }
+    .aw-header__menu { display: none; }
+  }
+</style>
+
+<header class="aw-header">
+  <div class="aw-header__inner">
+    <a href="/" class="aw-header__logo">{{ shop.name }}</a>
+    <nav>
+      <ul class="aw-header__menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="/collections/all">Collection</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="/pages/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

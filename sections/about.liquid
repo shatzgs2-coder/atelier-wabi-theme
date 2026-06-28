@@ -1,0 +1,102 @@
+<style>
+  .aw-about {
+    padding: 100px 40px;
+    background: #faf7f2;
+  }
+  .aw-about__grid {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .aw-about__label {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px;
+    color: #c17f59; margin-bottom: 16px; font-weight: 500;
+  }
+  .aw-about__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: #2c2420; margin-bottom: 24px; line-height: 1.2;
+  }
+  .aw-about__text {
+    font-size: 1.05rem; color: #6b5e53; line-height: 1.8; font-weight: 300;
+  }
+  .aw-about__list {
+    list-style: none; margin-top: 28px;
+  }
+  .aw-about__list li {
+    padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.95rem; color: #6b5e53;
+  }
+  .aw-about__list li::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: #c4a882; flex-shrink: 0;
+  }
+  .aw-about__image img {
+    border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); width: 100%;
+  }
+  @media (max-width: 768px) {
+    .aw-about { padding: 60px 20px; }
+    .aw-about__grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+
+<section class="aw-about" id="about">
+  <div class="aw-about__grid">
+    <div>
+      <p class="aw-about__label">{{ section.settings.label | default: "About Atelier Wabi" }}</p>
+      <h2 class="aw-about__title">{{ section.settings.title | default: "Mindful Design for Modern Living" }}</h2>
+      <div class="aw-about__text">{{ section.settings.text }}</div>
+      <ul class="aw-about__list">
+        <li>Designed in Berlin, handcrafted by artisans</li>
+        <li>100% natural and sustainable materials</li>
+        <li>No mass production — small batches only</li>
+        <li>Carbon-neutral shipping across Europe</li>
+        <li>30-day happiness guarantee</li>
+      </ul>
+    </div>
+    <div class="aw-about__image">
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 500 | image_tag: loading: 'lazy', alt: 'About Atelier Wabi' }}
+      {% else %}
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=600&fit=crop" alt="Handcrafted textiles" loading="lazy">
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "About Atelier Wabi"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Mindful Design for Modern Living"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "About Text",
+      "default": "<p>We are a Berlin-based home decor brand dedicated to bringing the warmth of handmade textiles and natural materials into contemporary homes. Our collection spans table linens, throw pillows, storage baskets, candles, wall tapestries, and more — each piece selected for its ability to transform a space.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Section",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,25 @@
+/* ===== Atelier Wabi — Global Theme Styles ===== */
+:root {
+  --aw-wheat: #d4c5b2;
+  --aw-linen: #f5f0e8;
+  --aw-clay: #c4a882;
+  --aw-earth: #8b7355;
+  --aw-charcoal: #3a3a3a;
+  --aw-stone: #6b5e53;
+  --aw-cream: #faf7f2;
+  --aw-white: #ffffff;
+  --aw-dark: #2c2420;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #3a3a3a;
+  background: #faf7f2;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; height: auto; }
+a { text-decoration: none; color: inherit; }

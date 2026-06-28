@@ -1,0 +1,18 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_primary": "#8b7355",
+      "color_accent": "#c17f59",
+      "color_bg": "#faf7f2",
+      "color_text": "#3a3a3a",
+      "font_heading": "cormorant_garamond_n4",
+      "font_body": "inter_n4",
+      "brand_tagline": "The Beauty of Imperfection",
+      "brand_story": "Atelier Wabi was born in Berlin, inspired by the Japanese philosophy of wabi-sabi — finding beauty in imperfection, transience, and simplicity. Each piece in our collection tells a story of craftsmanship, natural materials, and mindful living.",
+      "about_text": "<p>We are a Berlin-based home decor brand dedicated to bringing the warmth of handmade textiles and natural materials into contemporary homes. Our collection spans table linens, throw pillows, storage baskets, candles, wall tapestries, and more.</p>",
+      "social_instagram": "https://instagram.com/atelierwabi",
+      "social_pinterest": "https://pinterest.com/atelierwabi"
+    }
+  }
+}

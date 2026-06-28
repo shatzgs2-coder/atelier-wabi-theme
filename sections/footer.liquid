@@ -1,0 +1,67 @@
+<style>
+  .aw-footer {
+    background: #2c2420; color: rgba(255,255,255,0.6);
+    padding: 60px 40px 30px;
+  }
+  .aw-footer__grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    max-width: 1280px; margin: 0 auto;
+  }
+  .aw-footer__brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; color: #fff; margin-bottom: 12px;
+  }
+  .aw-footer p, .aw-footer a {
+    font-size: 0.85rem; line-height: 1.8; text-decoration: none; color: inherit;
+  }
+  .aw-footer a:hover { color: #c4a882; }
+  .aw-footer h4 {
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #fff; margin-bottom: 16px;
+  }
+  .aw-footer__bottom {
+    max-width: 1280px; margin: 40px auto 0; padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.78rem;
+  }
+  @media (max-width: 768px) {
+    .aw-footer { padding: 40px 20px 20px; }
+    .aw-footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+</style>
+
+<footer class="aw-footer" id="contact">
+  <div class="aw-footer__grid">
+    <div>
+      <div class="aw-footer__brand">{{ shop.name }}</div>
+      <p>The beauty of imperfection, delivered to your doorstep. Handcrafted home decor inspired by wabi-sabi philosophy.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <p><a href="/collections/all">All Products</a></p>
+      <p><a href="/collections">Collections</a></p>
+      <p><a href="/search">Search</a></p>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <p><a href="#story">Our Story</a></p>
+      <p><a href="#about">About Us</a></p>
+      <p><a href="/pages/contact">Contact</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Berlin, Germany</p>
+      <p>{{ shop.email }}</p>
+      <p>Ships across Europe</p>
+    </div>
+  </div>
+  <div class="aw-footer__bottom">
+    &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved. &mdash; Inspired by wabi-sabi.
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}
