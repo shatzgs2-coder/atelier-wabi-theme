@@ -1,1 +1,33 @@
-{{ content_for_layout }}
+<div class="page-width">
+  <div class="contact-page" style="max-width:680px;margin:80px auto;padding:0 20px;">
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:#8b7355;margin-bottom:1rem;">Contact Us</h1>
+    <p style="color:#6b5e53;line-height:1.8;margin-bottom:2rem;">We'd love to hear from you. Reach out for questions about our products, custom orders, or just to say hello.</p>
+    <div style="margin-bottom:1.5rem;">
+      <strong style="color:#8b7355;">Email:</strong>
+      <p style="color:#6b5e53;">hello@atelierwabi.com</p>
+    </div>
+    <div style="margin-bottom:1.5rem;">
+      <strong style="color:#8b7355;">Studio:</strong>
+      <p style="color:#6b5e53;">Berlin, Germany</p>
+    </div>
+    {% form 'contact' %}
+      {% if form.posted_successfully? %}
+        <p style="color:#8b7355;">Thank you for your message. We'll get back to you soon.</p>
+      {% endif %}
+      {{ form.errors | default_errors }}
+      <div style="margin-bottom:1rem;">
+        <label for="name" style="display:block;color:#6b5e53;margin-bottom:.25rem;">Name</label>
+        <input type="text" id="name" name="contact[name]" style="width:100%;padding:12px;border:1px solid #d4cfc5;border-radius:6px;font-family:inherit;">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="email" style="display:block;color:#6b5e53;margin-bottom:.25rem;">Email</label>
+        <input type="email" id="email" name="contact[email]" required style="width:100%;padding:12px;border:1px solid #d4cfc5;border-radius:6px;font-family:inherit;">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="message" style="display:block;color:#6b5e53;margin-bottom:.25rem;">Message</label>
+        <textarea id="message" name="contact[body]" rows="5" style="width:100%;padding:12px;border:1px solid #d4cfc5;border-radius:6px;font-family:inherit;"></textarea>
+      </div>
+      <button type="submit" style="background:#8b7355;color:#fff;border:none;padding:14px 36px;border-radius:6px;font-size:1rem;cursor:pointer;">Send Message</button>
+    {% endform %}
+  </div>
+</div>
