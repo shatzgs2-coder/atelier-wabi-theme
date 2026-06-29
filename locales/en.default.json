@@ -1,0 +1,30 @@
+{
+  "general": {
+    "site_title": "Atelier Wabi",
+    "tagline": "The Beauty of Imperfection"
+  },
+  "home_page": {
+    "hero_cta": "Explore Collection"
+  },
+  "product": {
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "unavailable": "Unavailable",
+    "quantity": "Quantity",
+    "description": "Description"
+  },
+  "collection": {
+    "no_products": "No products found in this collection."
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "checkout": "Checkout",
+    "subtotal": "Subtotal"
+  },
+  "footer": {
+    "shop": "Shop",
+    "company": "Company",
+    "contact": "Contact"
+  }
+}

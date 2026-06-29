@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Atelier Wabi",
+    "theme_version": "2.0.0",
+    "theme_author": "Atelier Wabi",
+    "theme_documentation_url": "https://atelierwabi.com",
+    "theme_support_url": "https://atelierwabi.com/contact"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "color_primary", "label": "Primary Color", "default": "#8b7355" },
+      { "type": "color", "id": "color_accent", "label": "Accent Color", "default": "#c17f59" },
+      { "type": "color", "id": "color_bg", "label": "Background Color", "default": "#faf7f2" },
+      { "type": "color", "id": "color_text", "label": "Text Color", "default": "#3a3a3a" }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      { "type": "font_picker", "id": "font_heading", "label": "Heading Font", "default": "cormorant_garamond_n4" },
+      { "type": "font_picker", "id": "font_body", "label": "Body Font", "default": "inter_n4" }
+    ]
+  },
+  {
+    "name": "Brand Story",
+    "settings": [
+      { "type": "text", "id": "brand_tagline", "label": "Tagline", "default": "The Beauty of Imperfection" },
+      { "type": "textarea", "id": "brand_story", "label": "Brand Story" },
+      { "type": "richtext", "id": "about_text", "label": "About Text" }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      { "type": "url", "id": "social_instagram", "label": "Instagram URL" },
+      { "type": "url", "id": "social_pinterest", "label": "Pinterest URL" }
+    ]
+  }
+]

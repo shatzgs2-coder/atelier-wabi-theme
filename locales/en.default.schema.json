@@ -1,0 +1,9 @@
+[
+  {
+    "name": "General",
+    "settings": [
+      { "type": "text", "id": "site_title", "label": "Site Title", "default": "Atelier Wabi" },
+      { "type": "text", "id": "tagline", "label": "Tagline", "default": "The Beauty of Imperfection" }
+    ]
+  }
+]
