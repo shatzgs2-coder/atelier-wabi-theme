@@ -1,0 +1,154 @@
+<style>
+  .aw-collection-page {
+    padding: 80px 40px;
+    background: #faf7f2;
+    min-height: 70vh;
+  }
+  .aw-collection-page__inner { max-width: 1280px; margin: 0 auto; }
+  .aw-collection-page__header {
+    text-align: center;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #e8e3d8;
+    margin-bottom: 48px;
+  }
+  .aw-collection-page__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #2c2420;
+    margin-bottom: 16px;
+  }
+  .aw-collection-page__desc {
+    font-size: 1.05rem;
+    color: #6b5e53;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .aw-collection-page__toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .aw-collection-page__count {
+    font-size: 0.85rem;
+    color: #8b7355;
+  }
+  .aw-collection-page__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 28px;
+    margin-bottom: 64px;
+  }
+  .aw-coll-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .aw-coll-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+  .aw-coll-card__img {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #ede8e0;
+  }
+  .aw-coll-card__img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+  }
+  .aw-coll-card:hover .aw-coll-card__img img { transform: scale(1.05); }
+  .aw-coll-card__body { padding: 16px; }
+  .aw-coll-card__type {
+    font-size: 0.7rem; color: #c4a882;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+  .aw-coll-card__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; color: #2c2420;
+    margin-bottom: 6px; line-height: 1.3;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .aw-coll-card__price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; color: #8b7355; font-weight: 600;
+  }
+  .aw-coll-card__link { text-decoration: none; color: inherit; }
+  .aw-pagination {
+    display: flex; justify-content: center;
+    gap: 8px; margin-top: 48px;
+  }
+  .aw-pagination a, .aw-pagination span {
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #8b7355;
+    text-decoration: none;
+    border: 1px solid #d4cec4;
+    transition: all 0.2s;
+  }
+  .aw-pagination a:hover,
+  .aw-pagination .current {
+    background: #8b7355; color: #fff; border-color: #8b7355;
+  }
+  @media (max-width: 768px) {
+    .aw-collection-page { padding: 40px 20px; }
+    .aw-collection-page__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  }
+</style>
+
+<section class="aw-collection-page">
+  <div class="aw-collection-page__inner">
+    <div class="aw-collection-page__header">
+      <h1 class="aw-collection-page__title">{{ collection.title }}</h1>
+      {%- if collection.description != blank -%}
+        <p class="aw-collection-page__desc">{{ collection.description }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="aw-collection-page__toolbar">
+      <p class="aw-collection-page__count">{{ collection.products_count }} pieces</p>
+    </div>
+
+    <div class="aw-collection-page__grid">
+      {%- for product in collection.products -%}
+        <div class="aw-coll-card">
+          <a href="{{ product.url }}" class="aw-coll-card__link">
+            <div class="aw-coll-card__img">
+              {%- if product.featured_image -%}
+                {{ product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: product.title }}
+              {%- else -%}
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#c4a882;font-family:'Cormorant Garamond',serif;font-size:1.2rem">Atelier Wabi</div>
+              {%- endif -%}
+            </div>
+            <div class="aw-coll-card__body">
+              <p class="aw-coll-card__type">{{ product.type }}</p>
+              <h3 class="aw-coll-card__title">{{ product.title }}</h3>
+              <p class="aw-coll-card__price">{{ product.price | money }}</p>
+            </div>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if paginate.pages > 1 -%}
+      <div class="aw-pagination">
+        {{ paginate | default_pagination }}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Page",
+  "settings": []
+}
+{% endschema %}
